@@ -33,6 +33,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -43,3 +47,9 @@ group :development do
   gem 'spring'
 end
 
+gem 'rspec-rails'
+gem 'foundation-rails'
+
+gem 'dotenv-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'

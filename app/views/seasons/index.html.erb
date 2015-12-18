@@ -1,0 +1,19 @@
+season index page
+
+<% if @current_season %>
+  <div class="current-season">
+    Current Season: <%= @current_season.year_span %>
+  </div>
+<% end %>
+
+<% if @seasons.any? %>
+  <ul class="season-list">
+    <% @seasons.each do |season| %>
+      <li>
+        <%= season.year_span %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  No seasons to display!
+<% end %>
