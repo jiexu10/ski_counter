@@ -6,6 +6,9 @@
 </div>
 
 <div class="small-8 small-centered columns">
+  <% if @user_match %>
+    <%= link_to 'Add New Season', new_user_season_path(@user) %>
+  <% end %>
   <% if @current_season %>
     <section class="block-list">
     <header>Current Season:</header>

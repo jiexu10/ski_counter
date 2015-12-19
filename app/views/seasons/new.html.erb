@@ -1,0 +1,12 @@
+New Season Form
+
+<%= form_for [@user, @season] do |f| %>
+  <div class="new-form">
+    <%= f.label :start_year, 'Start Year' %>
+    <%= f.text_field :start_year %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Add New Season', class: 'button tiny'%>
+  </div>
+<% end %>

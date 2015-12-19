@@ -25,8 +25,8 @@ FactoryGirl.define do
 
   factory :user do
     provider "facebook"
-    uid "123"
-    name "namestring"
+    sequence(:uid) { |n| "#{n}123"}
+    sequence(:name) { |n| "namestring#{n}" }
     email "testemail@email.com"
     user_image "fakeimageurl.jpg"
     facebook_url "fakefacebookurl.url"

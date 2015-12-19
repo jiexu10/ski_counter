@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
 
-  root 'seasons#index'
+  root 'home#index'
 
   resources :users, only: [:show] do
-    resources :seasons, only: [:index, :show]
+    resources :seasons, only: [:index, :show, :new, :create]
   end
 
   resources :days, only: [:show]
