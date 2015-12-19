@@ -7,5 +7,9 @@ Rails.application.routes.draw do
 
   root 'seasons#index'
 
-  resources :seasons, only: [:index]
+  resources :users, only: [:show] do
+    resources :seasons, only: [:index, :show]
+  end
+
+  resources :days, only: [:show]
 end

@@ -1,0 +1,38 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Polar Peaks", root_path %></h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <% if current_user %>
+        <li>
+          Signed in as <strong><%= current_user.name %></strong>!
+        </li>
+        <li>
+          <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+        </li>
+      <% end %>
+      <!-- <li class="active"><a href="#">Right Button Active</a></li>
+      <li class="has-dropdown">
+        <a href="#">Account Options</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li> -->
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li>A Customizable Ski Tracker</li>
+    </ul>
+  </section>
+</nav>

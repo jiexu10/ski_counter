@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   has_many :seasons
 
+  validates :provider, presence: true
+  validates :uid, presence: true
+  validates :email, presence: true
+  validates :name, presence: true
+
   def self.from_omniauth(auth)
     provider = auth.provider
     uid = auth.uid

@@ -1,19 +1,30 @@
-season index page
-
-<% if @current_season %>
-  <div class="current-season">
-    Current Season: <%= @current_season.year_span %>
+<div class="small-9 small-centered columns">
+  <div class="page-title">
+    <h2>Seasons</h2>
+    <hr>
   </div>
-<% end %>
+</div>
 
-<% if @seasons.any? %>
-  <ul class="season-list">
-    <% @seasons.each do |season| %>
-      <li>
-        <%= season.year_span %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  No seasons to display!
-<% end %>
+<div class="small-8 small-centered columns">
+  <% if @current_season %>
+    <section class="block-list">
+    <header>Current Season:</header>
+      <ul class="current-season">
+        <li><%= link_to @current_season.year_span, user_season_path(@user, @current_season) %></li>
+      </ul>
+    </section>
+  <% end %>
+
+  <% if @seasons.any? %>
+    <section class="block-list">
+    <header>Past Seasons:</header>
+      <ul class="season-list">
+        <% @seasons.each do |season| %>
+          <li><%= link_to season.year_span, user_season_path(@user, season) %></li>
+        <% end %>
+      </ul>
+    </section>
+  <% else %>
+    No seasons to display!
+  <% end %>
+</div>

@@ -1,22 +1,23 @@
 # As a user
-# I want to view the seasons
-# So that I can make new entries in the appropriate place
+# I want to add new seasons
+# So that I can create new entries for a new season
 #
 # Acceptance Criteria
 #
-# - When I log in, I must see my seasons
-# - I must see the year listed starting from the most recent
-# - When I am not logged in, I should not see the list of seasons
+# - I will create a new season if all the fields in the form are filled
+# - I will be brought to the show page if the season is create successfully
+# - The new season should appear on the index
+# - I must be returned to the form page if an error is made
 
 require 'rails_helper'
 
-feature 'user views index' do
+feature 'user adds new season' do
   let(:user) { FactoryGirl.create(:user) }
   let!(:seasons) { FactoryGirl.create_list(:season, 3, user: user) }
 
   scenario 'navigates to index, sees list sorted by year with current season first' do
     visit '/'
-    sign_in_as(user)
+    expect(current_path).to eq(root_path)
 
     expect(page).to have_selector("ul.current-season", text: seasons.first.year_span)
     expect(page).to have_selector("ul.season-list li", text: seasons[1].year_span)
