@@ -27,7 +27,7 @@
       <nav class="breadcrumbs">
         <%= link_to 'Home', root_path %>
         <% if session[:user_id] %>
-          <%= link_to 'My Index', user_seasons(session[:user_id]) %>
+          <%= link_to 'My Index', user_seasons_path(session[:user_id]) %>
         <% end %>
         <% if @user %>
           <%= link_to 'All Seasons Index (Current User)', user_seasons_path(@user) %>
