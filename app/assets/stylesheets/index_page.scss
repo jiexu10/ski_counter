@@ -1,0 +1,30 @@
+.light-blue-page-section {
+    text-align: center;
+    background-color: #E5F3F4;
+    padding: 4em 0;
+}
+
+.title-lines h2 {
+  color: #37becc;
+  margin-bottom: 0.5rem;
+  margin-top: 0.2rem;
+  display: table;
+  white-space: nowrap;
+}
+
+.light-blue-page-section.title-lines h2:before, .light-blue-page-section.title-lines h2:after {
+    border-top: 1px solid #CCCCCC;
+    content: '';
+    display: table-cell;
+    position: relative;
+    transform: translateY(50%);
+    width: 45%;
+}
+
+.light-blue-page-section.title-lines h2:before {
+    right: 1.5%;
+}
+
+.light-blue-page-section.title-lines h2:after {
+    left: 1.5%;
+}

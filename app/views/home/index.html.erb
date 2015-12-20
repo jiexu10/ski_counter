@@ -1,3 +1,13 @@
-yo main index page
+<div class="light-blue-page-section title-lines">
+  <div class="small-9 small-centered columns">
+    <h2>Welcome to Polar Peaks</h2>
 
-sign in or go to a specific user page
+    <br>
+
+    <% if @user %>
+      <%= link_to 'Your Index Page', user_seasons_path(@user) %>
+    <% else %>
+      Please sign in or go to a specific user's page!
+    <% end %>
+  </div>
+</div>

@@ -13,13 +13,32 @@
   </head>
 
   <body>
-    <%= render "/layouts/topbar" %>
+    <div class="row">
+      <%= render "/layouts/topbar" %>
+    </div>
 
     <% flash.each do |type, message| %>
       <div class="flash flash-<%= type %>">
         <%= message %>
       </div>
     <% end %>
+
+    <div class="row">
+      <nav class="breadcrumbs">
+        <%= link_to 'Home', root_path %>
+        <% if session[:user_id] %>
+          <%= link_to 'My Index', user_seasons(session[:user_id]) %>
+        <% end %>
+        <% if @user %>
+          <%= link_to 'All Seasons Index (Current User)', user_seasons_path(@user) %>
+          <% if @season %>
+            <%= link_to 'Season Days Index (Current User)', user_season_path(@user, @season) %>
+          <% end %>
+        <% end %>
+        <!-- <a class="unavailable" href="#">Gene Splicing</a>
+        <a class="current" href="#">Cloning</a> -->
+      </nav>
+    </div>
 
     <div class="row">
       <%= yield %>

@@ -49,7 +49,10 @@ end
 
 gem 'rspec-rails'
 gem 'foundation-rails'
+gem 'rails_12factor'
 
 gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+ruby '2.2.1'

@@ -1,33 +1,36 @@
-<div class="small-9 small-centered columns">
-  <div class="page-title">
-    <h2>Seasons</h2>
-    <hr>
+<div class="seasons-index page-bg">
+  <div class="small-10 small-centered columns">
+    <div class="page-title">
+      <h2>Seasons</h2>
+      <h5>(<%= @user.name %>)</h5>
+      <hr>
+    </div>
   </div>
-</div>
 
-<div class="small-8 small-centered columns">
-  <% if @user_match %>
-    <%= link_to 'Add New Season', new_user_season_path(@user) %>
-  <% end %>
-  <% if @current_season %>
-    <section class="block-list">
-    <header>Current Season:</header>
-      <ul class="current-season">
-        <li><%= link_to @current_season.year_span, user_season_path(@user, @current_season) %></li>
-      </ul>
-    </section>
-  <% end %>
+  <div class="info-section small-9 small-centered columns">
+    <% if @user_match %>
+      <header><%= link_to 'Add New Season', new_user_season_path(@user) %></header>
+    <% end %>
+    <% if @current_season %>
+      <section class="block-list">
+      <header>Current Season:</header>
+        <ul class="current-season">
+          <li><%= link_to @current_season.year_span, user_season_path(@user, @current_season) %></li>
+        </ul>
+      </section>
+    <% end %>
 
-  <% if @seasons.any? %>
-    <section class="block-list">
-    <header>Past Seasons:</header>
-      <ul class="season-list">
-        <% @seasons.each do |season| %>
-          <li><%= link_to season.year_span, user_season_path(@user, season) %></li>
-        <% end %>
-      </ul>
-    </section>
-  <% elsif !@current_season %>
-    No seasons to display!
-  <% end %>
+    <% if @seasons.any? %>
+      <section class="block-list">
+      <header>Past Seasons:</header>
+        <ul class="season-list">
+          <% @seasons.each do |season| %>
+            <li><%= link_to season.year_span, user_season_path(@user, season) %></li>
+          <% end %>
+        </ul>
+      </section>
+    <% elsif !@current_season %>
+      No seasons to display!
+    <% end %>
+  </div>
 </div>
