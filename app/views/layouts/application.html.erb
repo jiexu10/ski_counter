@@ -17,11 +17,13 @@
       <%= render "/layouts/topbar" %>
     </div>
 
-    <% flash.each do |type, message| %>
-      <div class="flash flash-<%= type %>">
-        <%= message %>
-      </div>
-    <% end %>
+    <div class="row">
+      <% flash.each do |type, message| %>
+        <div class="flash flash-<%= type %>">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
 
     <div class="row">
       <nav class="breadcrumbs">
