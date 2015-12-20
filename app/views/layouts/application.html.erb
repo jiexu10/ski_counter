@@ -31,7 +31,7 @@
         <% end %>
         <% if @user %>
           <%= link_to 'All Seasons Index (Current User)', user_seasons_path(@user) %>
-          <% if @season %>
+          <% if @season.id %>
             <%= link_to 'Season Days Index (Current User)', user_season_path(@user, @season) %>
           <% end %>
         <% end %>
