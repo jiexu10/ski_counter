@@ -14,13 +14,13 @@ FactoryGirl.define do
     notes "yo it was fun"
     season
 
-    factory :past_day do
-      sequence(:date) { |n| "#{season.start_year}-11-#{n}"}
-      location "somepastskiplace"
-      weather "somepastweather"
-      notes "yo it was fun back then"
-      season
-    end
+    # factory :past_day do
+    #   sequence(:date) { |n| "#{season.start_year}-11-#{n}"}
+    #   location "somepastskiplace"
+    #   weather "somepastweather"
+    #   notes "yo it was fun back then"
+    #   season
+    # end
   end
 
   factory :user do
