@@ -16,7 +16,7 @@
       <section class="block-list">
       <header>Days:</header>
         <% @days.each do |day| %>
-          <!-- <li><%= link_to day.date, user_season_path(@user, season) %></li> -->
+          <li><%= link_to day.date, day_path(day) %></li>
         <% end %>
       </section>
     <% else %>

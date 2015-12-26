@@ -15,8 +15,7 @@ class SeasonsController < ApplicationController
     if session[:user_id]
       @user_match = user_match?(@user)
     end
-    @days = []
-    # @days = @season.days
+    @days = @season.days
   end
 
   def new
