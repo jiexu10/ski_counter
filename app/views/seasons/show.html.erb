@@ -9,7 +9,7 @@
 
   <div class="info-section small-9 small-centered columns">
     <% if @user_match %>
-      <!-- <header><%= link_to 'Add New Day', new_user_season_path(@user) %></header> -->
+      <header><%= link_to 'Add New Day', new_season_day_path(@season) %></header>
       Add New Day
     <% end %>
     <% if @days.any? %>

@@ -11,5 +11,9 @@ Rails.application.routes.draw do
     resources :seasons, only: [:index, :show, :new, :create]
   end
 
+  resources :seasons, only: [:show] do
+    resources :days, only: [:new, :create]
+  end
+
   resources :days, only: [:show]
 end
