@@ -11,8 +11,8 @@ require 'rails_helper'
 
 feature 'user views ski day index' do
   let(:user) { FactoryGirl.create(:user) }
-  let(:season) {FactoryGirl.create(:season)}
-  let!(:days) {FactoryGirl.create_list(:day, 3, sesason: season)}
+  let(:season) {FactoryGirl.create(:season, user: user)}
+  let!(:days) {FactoryGirl.create_list(:day, 3, season: season)}
 
   scenario 'user navigates to ski day index from seasons index' do
     visit user_seasons_path(user)
