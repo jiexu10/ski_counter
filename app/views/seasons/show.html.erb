@@ -1,7 +1,7 @@
-<div class="seasons-index page-bg">
+<div class="days-index page-bg">
   <div class="small-10 small-centered columns">
     <div class="page-title">
-      <h2><%= @season.year_span %> Season</h2>
+      <h2>Days</h2>
       <h5>(<%= @user.name %>)</h5>
       <hr>
     </div>
@@ -10,17 +10,18 @@
   <div class="info-section small-9 small-centered columns">
     <% if @user_match %>
       <header><%= link_to 'Add New Day', new_season_day_path(@season) %></header>
-      Add New Day
     <% end %>
     <% if @days.any? %>
       <section class="block-list">
       <header>Days:</header>
-        <% @days.each do |day| %>
-          <li><%= link_to day.date, day_path(day) %></li>
-        <% end %>
+        <ul class="day-list">
+          <% @days.each do |day| %>
+            <li><%= link_to day.date_string, day_path(day) %></li>
+          <% end %>
+        </ul>
       </section>
     <% else %>
-      No days to display!
+      No days to display in this season!
     <% end %>
   </div>
 </div>

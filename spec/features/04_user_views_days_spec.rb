@@ -20,9 +20,9 @@ feature 'user views ski day index' do
     click_link(season.year_span)
 
     days.each_with_index do |day, index|
-      expect(page).to have_selector("ul.days-list", text: day.date)
+      expect(page).to have_selector("ul.day-list li", text: day.date_string)
       unless index == 0
-        expect(page.body.index(day[index-1].date) < page.body.index(day[index].date)).to eq(true)
+        expect(page.body.index(days[index-1].date_string) < page.body.index(days[index].date_string)).to eq(days[index-1].date > days[index].date)
       end
     end
   end

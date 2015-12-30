@@ -1,1 +1,27 @@
-days index page for season
+<div class="days-index page-bg">
+  <div class="small-10 small-centered columns">
+    <div class="page-title">
+      <h2>Days</h2>
+      <h5>(<%= @user.name %>)</h5>
+      <hr>
+    </div>
+  </div>
+
+  <div class="info-section small-9 small-centered columns">
+    <% if @user_match %>
+      <header><%= link_to 'Add New Day', new_season_day_path(@season) %></header>
+    <% end %>
+    <% if @days.any? %>
+      <section class="block-list">
+      <header>Days:</header>
+        <ul class="day-list">
+          <% @days.each do |day| %>
+            <li><%= link_to day.date_string, day_path(day) %></li>
+          <% end %>
+        </ul>
+      </section>
+    <% else %>
+      No days to display in this season!
+    <% end %>
+  </div>
+</div>

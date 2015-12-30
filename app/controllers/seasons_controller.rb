@@ -1,4 +1,6 @@
 class SeasonsController < ApplicationController
+  include CommonSki
+
   def index
     @user = User.find(params[:user_id])
     if session[:user_id]
@@ -15,7 +17,7 @@ class SeasonsController < ApplicationController
     if session[:user_id]
       @user_match = user_match?(@user)
     end
-    @days = @season.days
+    @days = @season.days.sort { |day1, day2| day2.date <=> day1.date }
   end
 
   def new
@@ -40,9 +42,5 @@ class SeasonsController < ApplicationController
   private
   def season_params
     params.require(:season).permit(:start_year, :end_year)
-  end
-
-  def user_match?(user)
-    user == User.find(session[:user_id])
   end
 end
