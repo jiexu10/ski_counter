@@ -32,7 +32,7 @@ class SeasonsController < ApplicationController
     @season.user = @user
 
     if @season.save
-      redirect_to user_seasons_path(@user), notice: 'Season added successfully'
+      redirect_to user_seasons_path(@user), notice: 'Season added successfully!'
     else
       flash.now[:error] = "#{@season.errors.full_messages}"
       render :new

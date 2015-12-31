@@ -24,8 +24,9 @@ feature 'user adds new season' do
 
     fill_in('Start Year', with: '2010')
     click_button('Add New Season')
-  
+
     expect(current_path).to eq(user_seasons_path(user))
+    expect(page).to have_selector("div.flash-notice", text: 'Season added successfully!')
     expect(page).to have_selector("ul.current-season", text: '2010-2011')
   end
 
@@ -38,7 +39,7 @@ feature 'user adds new season' do
     fill_in('Start Year', with: 'asd1')
     click_button('Add New Season')
 
-    expect(page).to have_content('Please enter valid 4-digit year.')
+    expect(page).to have_selector("div.flash-error", text: 'Please enter valid 4-digit year.')
     expect(find_field('Start Year').value).to eq('asd1')
   end
 
@@ -49,6 +50,5 @@ feature 'user adds new season' do
     visit(user_seasons_path(user2))
 
     expect(page).to_not have_content('Add New Season')
-
   end
 end

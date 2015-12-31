@@ -1,16 +1,6 @@
 class DaysController < ApplicationController
   include CommonSki
 
-  # def index
-  #   @season = Season.find(params[:season_id])
-  #   @days = @season.days
-  #   @user = @season.user
-  #   if session[:user_id]
-  #     @user_match = user_match?(@user)
-  #   end
-  #   binding.pry
-  # end
-
   def show
     @day = Day.find(params[:id])
     @season = @day.season
